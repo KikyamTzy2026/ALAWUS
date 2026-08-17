@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomId": {
+        ".read": true,
+        ".write": true,
+        "players": {
+          "$playerId": {
+            ".validate": "newData.hasChildren(['username', 'color', 'avatar', 'x', 'y', 'alive', 'ready'])"
+          }
+        },
+        "bodies": {
+          "$bodyId": {
+            ".validate": "newData.hasChildren(['victimId', 'victimColor', 'x', 'y', 'reported'])"
+          }
+        },
+        "host": {
+          ".validate": "newData.isString()"
+        },
+        "status": {
+          ".validate": "newData.isString()"
+        }
+      }
+    }
+  }
+}
